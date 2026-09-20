@@ -1,26 +1,38 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Coming Soon</title>
-  <style>
-    body {
-      margin: 0;
-      background-color: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collettivo Studios</title>
+<script src="./assets/logo-animation/support.js"></script>
 </head>
 <body>
-  <img src="coming soon.png" alt="Coming Soon" />
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; background: #eceae5; }
+    a { color: #d32f2f; }
+    a:hover { color: #1c1c1c; }
+    #cs-desktop { display: flex; }
+    #cs-mobile { display: none; }
+    @media (max-width: 768px) {
+      #cs-desktop { display: none; }
+      #cs-mobile { display: flex; }
+    }
+  </style>
+  <script>window.OM_SCENES = '[{"name":"Flip","dur":3,"desc":"Centred in frame, the letters of collettivo flip up one by one around their own centre","nat":4.2},{"name":"Shift","dur":1.6,"desc":"The finished word travels left and red studios with the trademark mark comes out of the same movement","nat":2.2},{"name":"Hold","dur":1,"desc":"The finished lockup holds with a slow camera breath","nat":1.8},{"name":"Credit","dur":2.2,"desc":"coming soon and the copyright line appear at the bottom of the screen"}]';</script>
+  <script>window.OM_PLAYBACK = '{"mode":"times","count":1}';</script>
+  <script>window.TWEAK_DEFAULTS = {"bg":"#ffffff","accent":"#d32f2f","motionEditor":true};</script>
+</helmet>
+
+<div id="cs-desktop" style="min-height:100vh; align-items:center; justify-content:center; background:#eceae5; padding:24px;">
+  <x-import component-from-global-scope="DesktopLogoAnimation" from="./assets/logo-animation/animations-v3.jsx ./assets/logo-animation/tweaks-panel.jsx ./assets/logo-animation/logo-web.js ./assets/logo-animation/logo-scene-web.jsx" hint-size="100%,60vh"></x-import>
+</div>
+
+<div id="cs-mobile" style="min-height:100vh; align-items:center; justify-content:center; background:#eceae5; padding:24px;">
+  <x-import component-from-global-scope="MobileLogoAnimation" from="./assets/logo-animation/animations-v3.jsx ./assets/logo-animation/tweaks-panel.jsx ./assets/logo-animation/logo-web.js ./assets/logo-animation/logo-scene-web.jsx" hint-size="100%,70vh"></x-import>
+</div>
+
+</x-dc>
 </body>
 </html>
