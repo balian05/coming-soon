@@ -10,11 +10,12 @@
 <x-dc>
 <helmet>
   <style>
-    body { margin: 0; background: #eceae5; }
+    html, body { margin: 0; height: 100%; background: #ffffff; overflow: hidden; }
     a { color: #d32f2f; }
     a:hover { color: #1c1c1c; }
-        [data-omelette-chrome] { display: none !important; }
-            .sc-placeholder { background: #eceae5 !important; }
+    [data-omelette-chrome] { display: none !important; }
+    .sc-placeholder { background: #ffffff !important; border-color: transparent !important; }
+    [data-om-starter="animations-v3"] { background: #ffffff !important; }
     #cs-desktop { display: flex; }
     #cs-mobile { display: none; }
     @media (max-width: 768px) {
@@ -27,11 +28,11 @@
   <script>window.TWEAK_DEFAULTS = {"bg":"#ffffff","accent":"#d32f2f","motionEditor":true};</script>
 </helmet>
 
-<div id="cs-desktop" style="min-height:100vh; align-items:center; justify-content:center; background:#eceae5; padding:24px;">
+<div id="cs-desktop" style="min-height:100vh; align-items:center; justify-content:center; background:#ffffff; padding:24px;">
   <x-import component-from-global-scope="DesktopLogoAnimation" from="./assets/logo-animation/animations-v3.jsx ./assets/logo-animation/tweaks-panel.jsx ./assets/logo-animation/logo-web.js ./assets/logo-animation/logo-scene-web.jsx" hint-size="100%,60vh"></x-import>
 </div>
 
-<div id="cs-mobile" style="min-height:100vh; align-items:center; justify-content:center; background:#eceae5; padding:24px;">
+<div id="cs-mobile" style="min-height:100vh; align-items:center; justify-content:center; background:#ffffff; padding:24px;">
   <x-import component-from-global-scope="MobileLogoAnimation" from="./assets/logo-animation/animations-v3.jsx ./assets/logo-animation/tweaks-panel.jsx ./assets/logo-animation/logo-web.js ./assets/logo-animation/logo-scene-web.jsx" hint-size="100%,70vh"></x-import>
 </div>
 

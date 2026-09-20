@@ -403,12 +403,10 @@ function Stage({
     if (!stageRef.current) return;
     const el = stageRef.current;
     const measure = () => {
-      // Fullscreen "cover" fit: the composition fills the entire viewport
-      // edge-to-edge (cropping overflow via the canvas wrapper's
-      // overflow:hidden) instead of letterboxing to fit inside it.
-      const s = Math.max(
+      const barH = 0; // playback bar hidden in production
+      const s = Math.min(
         el.clientWidth / width,
-        el.clientHeight / height
+        (el.clientHeight - barH) / height
       );
       setScale(Math.max(0.05, s));
     };
