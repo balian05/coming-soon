@@ -369,12 +369,7 @@ function Stage({
   const playTimes = playback && playback.mode === 'times' ? playback.count : null;
   const loopEff = playback ? playback.mode === 'loop' : loop;
 
-  const [time, setTime] = React.useState(() => {
-    try {
-      const v = parseFloat(localStorage.getItem(persistKey + ':t') || '0');
-      return isFinite(v) ? clamp(v, 0, duration) : 0;
-    } catch { return 0; }
-  });
+  const [time, setTime] = React.useState(0);
   const [playing, setPlaying] = React.useState(autoplay);
   // The external-playback latch: true while the HOST play bar is driving
   // time forward as genuine continuous playback (its play-loop seeks
@@ -393,10 +388,9 @@ function Stage({
   const rafRef = React.useRef(null);
   const lastTsRef = React.useRef(null);
 
-  // Persist playhead
-  React.useEffect(() => {
-    try { localStorage.setItem(persistKey + ':t', String(time)); } catch {}
-  }, [time, persistKey]);
+  // Playhead persistence disabled in production: every visit should
+  // start the composition fresh from 0, not resume where a previous
+  // page load left off.
 
   // Auto-scale to fit viewport
   React.useEffect(() => {
@@ -610,7 +604,6 @@ function Stage({
             transform: `scale(${scale})`,
             transformOrigin: 'center',
             flexShrink: 0,
-            boxShadow: '0 20px 60px rgba(0,0,0,0.4)',
             display: 'block',
           }}
         >
